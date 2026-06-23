@@ -2,7 +2,7 @@
 
 A high-performance, visually stunning interactive calendar built with a focus on senior-level engineering principles, modular architecture, and premium UI/UX aesthetics.
 
-![Aura Calendar Preview](https://github.com/ayushkr2736/ai_saas/blob/main/preview.png?raw=true) 
+![Aura Calendar Preview](https://github.com/arpitpachoriya1672005-prog/Interactive_Calender/blob/main/preview.png?raw=true) 
 
 ## 🌟 Key Features
 
@@ -26,7 +26,7 @@ A high-performance, visually stunning interactive calendar built with a focus on
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ayushkr2736/ai_saas.git
+   git clone https://github.com/arpitpachoriya1672005-prog/Interactive_Calender.git
    cd interactive-calendar
    ```
 
@@ -61,8 +61,8 @@ All calendar grid calculations (padding days, leap years, range spans) are extra
 
 | Desktop View | Mobile View |
 | :--- | :--- |
-| ![Desktop](https://github.com/ayushkr2736/ai_saas/blob/main/desktop.png?raw=true) | ![Mobile](https://github.com/ayushkr2736/ai_saas/blob/main/mobile.png?raw=true) |
+| ![Desktop](https://github.com/arpitpachoriya1672005-prog/Interactive_Calender/blob/main/desktop.png?raw=true) | ![Mobile](https://github.com/arpitpachoriya1672005-prog/Interactive_Calender/blob/main/mobile.png?raw=true) |
 
 ---
 
-Built with ❤️ by [Ayush](https://github.com/Ayushkr2736)
+Built with ❤️ by [Arpit](https://github.com/arpitpachoriya1672005-prog)
