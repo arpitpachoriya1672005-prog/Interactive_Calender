@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
+  
+  --color-primary: var(--primary-color);
+  --color-primary-hover: var(--primary-hover-color);
+  --color-secondary: #ec4899;
+  --color-accent: #8b5cf6;
+  
+  --color-calendar-bg: var(--background);
+  --color-calendar-card: var(--card);
+  --color-calendar-border: var(--border);
+  
+  /* Typography / Radii Overrides */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+
+  /* Shadows */
+  --shadow-float: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 20px var(--primary-hover-color);
+  --shadow-glow-sm: 0 0 8px var(--primary-color);
+  --shadow-panel: 0 20px 60px -15px rgba(0, 0, 0, 0.5);
+  
+  /* Spacing Scale */
+  --spacing-panel: 420px;
+  --spacing-container: 2000px;
+  --spacing-cell: 9vh;
+  --spacing-sheet: 65vh;
+  
+  /* Z-Index */
+  --z-max: 100;
+}
+
+:root {
+  --background: #fdfdfd;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary-color: #6366f1;
+  --primary-hover-color: #4f46e5;
+  --primary-foreground: #ffffff;
+  --secondary: #f8fafc;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: #f1f5f9;
+  --ring: var(--primary-color);
+  
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --shadow-ambient: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --card: #050b1d;
+  --card-foreground: #f8fafc;
+  --popover: #050b1d;
+  --popover-foreground: #f8fafc;
+  --secondary: #121b33;
+  --secondary-foreground: #f8fafc;
+  --muted: #0a1229;
+  --muted-foreground: #94a3b8;
+  --accent: #121b33;
+  --accent-foreground: #f8fafc;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #0a1229;
+  
+  --glass-bg: rgba(5, 11, 29, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-ambient: 0 40px 100px -30px rgba(0, 0, 0, 0.8);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  letter-spacing: -0.01em;
+}
+
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-ambient);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  }
+}
+
+/* 
+ * Ambient Layout Drifting Animation
+ * Uses background sizes to slowly shift colors, adding depth without painting overhead
+ */
+@keyframes ambientDrift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-ambient {
+  background-size: 400% 400%;
+  animation: ambientDrift 20s ease infinite;
+}
+
+/* 
+ * Soft Animated Gradient Border for Selected Dates
+ * Preserves the pill shape by inheriting border-radius and rendering behind the cell background
+ */
+.gradient-border-animated {
+  position: relative;
+  z-index: 1;
+}
+.gradient-border-animated::before {
+  content: "";
+  position: absolute;
+  /* Negative inset defines the border width */
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary));
+  background-size: 300% 300%;
+  animation: ambientDrift 4s linear infinite;
+  z-index: -1;
+  opacity: 0.8;
+}
